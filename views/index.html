@@ -7,31 +7,36 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link id="favicon" rel="icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon-32x32.png" type="image/x-icon">
+  <link id="favicon" rel="icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon-32x32.png" type="image/x-icon">
 	<link rel="stylesheet" href="../public/style.css" type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 </head>
 
 <body>
-	<header>
-		<h1>
-			American / British English Translator
-		</h1>
+	<header id="header">
+		<div id="usa"></div>
+    <div id="uk"></div>
 	</header>
-	<hr style="margin: 25px" />
+	
 	<div class="container">
 		<div class="form-container">
-			<textarea
-          rows="10"
-          cols="60"
-          id="text-input"
-        ></textarea>
+      <h1 id="header-text">American to British Translator</h1>
+      <br />
+			<div id="bubble" contenteditable="true"></div>
+      <div id="img-container" style="position: relative;">
+        <img src='./public/Nigel.png' style="height: 200px; opacity: 0%" id="nigel"/>
+        <img src='./public/Jetson.png' style="height: 200px" id="george"/>
+      </div>
         <br />
         <select id="locale-select">
           <option value="american-to-british">American to British</option>
           <option value="british-to-american">British to American</option>
         </select>
         <input type="button" value="Translate" id="translate-btn"/>
-      </div>
+        
+
       <div id="output-container">
         <div id="solution-container">
           Translated Sentence:
@@ -39,7 +44,40 @@
           <div id="error-msg"></div>
         </div>
       </div>
+      <div id="a2b-examples" class="examples">
+        <h2>Example Phrases</h2>
+        <p class = "example" onclick="copy(this.innerHTML)">Mangoes are my favorite fruit.</p>
+        <p class = "example" onclick="copy(this.innerHTML)">I ate yogurt for breakfast.</p>
+        <p class = "example" onclick="copy(this.innerHTML)">We had a party at my friend's condo.</p>
+        <p class = "example" onclick="copy(this.innerHTML)">Can you toss this in the trashcan for me?</p>
+        <p class = "example" onclick="copy(this.innerHTML)">The parking lot was full.</p>
+        <p class = "example" onclick="copy(this.innerHTML)">Like a high tech Rube Goldberg machine.</p>
+        <p class = "example" onclick="copy(this.innerHTML)">To play hooky means to skip class or work.</p>
+        <p class = "example" onclick="copy(this.innerHTML)">No Mr. Bond, I expect you to die.</p>
+        <p class = "example" onclick="copy(this.innerHTML)">Dr. Grosh will see you now.</p>
+        <p class = "example" onclick="copy(this.innerHTML)">Lunch is at 12:15 today.</p>
+      </div>
+      <div id="b2a-examples" class="examples" style="display: none">
+        <h2>Example Phrases</h2>
+        <p class = "example" onclick="copy(this.innerHTML)">We watched the footie match for a while.</p>
+        <p class = "example" onclick="copy(this.innerHTML)">Paracetamol takes up to an hour to work.</p>
+        <p class = "example" onclick="copy(this.innerHTML)">First, caramelise the onions.</p>
+        <p class = "example" onclick="copy(this.innerHTML)">I spent the bank holiday at the funfair.</p>
+        <p class = "example" onclick="copy(this.innerHTML)">I had a bicky then went to the chippy.</p>
+        <p class = "example" onclick="copy(this.innerHTML)">I've just got bits and bobs in my bum bag.</p>
+        <p class = "example" onclick="copy(this.innerHTML)">The car boot sale at Boxted Airfield was called off.</p>
+        <p class = "example" onclick="copy(this.innerHTML)">Have you met Mrs Kalyani?</p>
+        <p class = "example" onclick="copy(this.innerHTML)">Prof Joyner of King's College, London.</p>
+        <p class = "example" onclick="copy(this.innerHTML)">Tea time is usually around 4 or 4.30.</p>
+      </div>
     </div>
+  </div>
+    
   </body>
+  <script>
+    let copy = (data) => {
+      document.getElementById("bubble").textContent = data
+  }
+  </script>
   <script src="../public/index.js"></script>
 </html>
