@@ -12,6 +12,15 @@ module.exports = function (app) {
       let text = req.body.text;
       let translation;
       let changedWords = [];
+      let titles = 
+        ['Mr.',
+        'Mrs.',
+        'Ms.',
+        'Mx.',
+        'Dr.',
+        'Prof.']
+      
+      
 
      
       // If no text is entered
@@ -35,25 +44,28 @@ module.exports = function (app) {
         translation = translator.translateToAmerican(text)[0];
         changedWords = translator.translateToAmerican(text)[1].join(' ').split(' ');
       }
-      console.log(translation)
-      console.log(changedWords)
       
 
      // If no translation is needed (If returned value is equal to entered value)
       if (translation === text) {
         translation = 'Everything looks good to me!'
       } else {
-        /*changedWords.map(word => {
-          if (translation.includes(word)) {
-            translation = translation.replace(word, `<span class="highlight">${word}</span>`)
-          }
-        })*/
-        translation = translation.split(' ').map(word => {
-          if (changedWords.includes(word)) {
-            word = `<span class="highlight">${word}</span>`
-          }
+        translation = translation
+        .split(' ')
+        .map(word => {
+          let addPunctuation = false;
+          let lastChar = word.charAt(word.length - 1);
+          if (/[.!?,;:%$*]/.test(lastChar) && !titles.includes(word)) {
+            word = word.slice(0, -1);
+            addPunctuation = true;
+        }
+
+          if (changedWords.includes(word)) word = `<span class="highlight">${word}</span>`;
+          if (addPunctuation) word = word + lastChar;
           return word
-        }).join(' ')
+
+        })
+        .join(' ')
       }
       console.log(translation)
       // Return json object

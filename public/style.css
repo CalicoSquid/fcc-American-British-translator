@@ -5,7 +5,6 @@
 }
 
 header {
-  text-align: center;
   display: flex;
   height: 100px;
 }
@@ -25,7 +24,6 @@ header {
 }
 
 h1 {
-text-align: center;
 margin-top: 20px;
 }
 
@@ -34,17 +32,16 @@ code {
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 75%;
+  width: 60%;
   margin: auto;
 }
 
 .form-container {
   max-width: 95%;
   margin: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 #user-stories {
@@ -61,20 +58,25 @@ input[type="button"] {
 
 #output-container {
   display: flex;
-  width: 70%;
   flex-direction: column;
   justify-content: center;
+  width: 50%;
   margin: 20px 0 0 0;
   padding: 10px;
   border: 2px solid rgb(32, 31, 31);
   border-radius: 5px;
+  transition: width 1s;
+  background-color: #fff;
 }
 
 #solution-container {
   font-weight: bold;
 }
 
+#top {
+  width: 75%;
 
+}
 #translated-sentence {
   margin-top: 10px;
   font-weight: normal;
@@ -96,8 +98,10 @@ input[type="button"] {
 }
 
 .examples {
-
-  margin: 20px 0 20px 0;
+  padding: 2rem;
+  border: 2px solid #000;
+  border-radius: 10px;
+  margin: 20px;
 }
 
 .example:hover {
@@ -105,24 +109,15 @@ input[type="button"] {
   color: orangered;
 }
 
-
-@media (min-width: 800px) {
-  
-  #solution-container {
-    width: 75%;
-    margin-top: 0;
-  }
-}
-
 img {
   position: absolute;
   left: 500px;
   right: 0;
   bottom: -200px;
-  
   transition: all 1s;
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
+  z-index: -10;
 }
 
 img:hover {
@@ -134,7 +129,7 @@ img:hover {
   position:relative;
   display: inline-block;
   padding: 30px;
-  background: #f0f0f0;
+  background: #ff9;
   font-family: "Comic Sans MS", cursive, sans-serif;
   text-transform: uppercase;
   color:#000;
@@ -154,8 +149,56 @@ img:hover {
   bottom:-10px;
   width:15px;
   height:15px;
-  background:#f0f0f0;
+  background:#ff9;
   border-right: 2px solid #000;
   border-bottom: 2px solid #000;
   transform: rotate(45deg);
 }
+
+.footer {
+  height: 100px;
+  width: 100%;
+
+  transition: width 1s;
+  margin-top: 150px;
+  text-align: center;
+}
+
+.footer a {
+  text-decoration: none;
+  color: #ff7a00
+}
+
+@media (max-width: 1500px) {
+
+  .form-container {
+    flex-direction: column;
+    justify-content: left;
+  }
+
+  .examples {
+    width: 75%;
+  }
+
+  #bubble {
+    min-width:100%;
+  }
+
+  #bubble:after {
+    left: 0;
+  }
+
+  .footer {
+    margin: 0;
+  }
+
+  img {
+    display: none;
+  }
+
+  #output-container {
+    width: 100%;
+  }
+
+}
+

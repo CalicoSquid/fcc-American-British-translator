@@ -106,7 +106,7 @@ class Translator {
 
         let newText = text.toLowerCase().split(' ');
         text = text.split(' ');
-        console.log(text)
+
         // Maps through array of input words
         newText
         .map((item, index) => {

@@ -12,6 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/9eb3d3749b.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -22,6 +23,7 @@
 	
 	<div class="container">
 		<div class="form-container">
+      <div id="top">
       <h1 id="header-text">American to British Translator</h1>
       <br />
 			<div id="bubble" contenteditable="true"></div>
@@ -39,11 +41,12 @@
 
       <div id="output-container">
         <div id="solution-container">
-          Translated Sentence:
+          Translation:
           <div id="translated-sentence"></div>
           <div id="error-msg"></div>
         </div>
       </div>
+    </div>
       <div id="a2b-examples" class="examples">
         <h2>Example Phrases</h2>
         <p class = "example" onclick="copy(this.innerHTML)">Mangoes are my favorite fruit.</p>
@@ -69,8 +72,15 @@
         <p class = "example" onclick="copy(this.innerHTML)">Have you met Mrs Kalyani?</p>
         <p class = "example" onclick="copy(this.innerHTML)">Prof Joyner of King's College, London.</p>
         <p class = "example" onclick="copy(this.innerHTML)">Tea time is usually around 4 or 4.30.</p>
-      </div>
+      
     </div>
+    </div>
+      <div class="footer">Created for 
+        <a href="https://www.freecodecamp.org/">freeCodeCamp</a> 
+        by 
+        <a href="https://www.freecodecamp.org/CalicoSquid">CalicoSquid </a>
+        <i class="fa-solid fa-cat fa-bounce"></i>
+      </div>
   </div>
     
   </body>
